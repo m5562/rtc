@@ -39,6 +39,7 @@ let createAnswer = async () => {
 
     peerConnection.onicecandidate = async (event) => {
         //Event that fires off when a new answer ICE candidate is created
+        console.log(event.candidate);
         if(event.candidate){
             console.log('Adding answer candidate...:', event.candidate)
             document.getElementById('answer-sdp').value = JSON.stringify(peerConnection.localDescription)
